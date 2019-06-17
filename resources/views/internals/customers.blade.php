@@ -24,6 +24,16 @@
             <div class="form-group">
                 <input type="email" name="email" id="email" value="{{old('email')}}" class="form-control">
             </div>
+
+            <div class="form-group">
+                <label for="active">Status</label>
+                <select name="active" id="active" class="form-control">
+                    <option value="" disabled>Select customer status</option>
+                    <option value="1">Active</option>
+                    <option value="0">Inactive</option>
+                </select>
+            </div>
+
             <div>{{$errors->first('email')}}</div>
             <div>{{$errors->first('name')}}</div>
             <button type="submit" class="btn btn-primary">Add Customer</button>
@@ -33,12 +43,24 @@
 </div>
 
 <div class="row">
-    <div class="col-12">
+    <div class="col-6">
+        <h3>Active Customers</h3>
         <ul>
-            @foreach ($customoors as $customer)
-            <li> {{$customer->name}} <span class="text-muted">({{$customer->email}})</span> </li>
+            @foreach ($actives as $active)
+            <li> {{$active->name}} <span class="text-muted">({{$active->email}})</span> </li>
             @endforeach
         </ul>
-        @endsection
+
+    </div>
+      <div class="col-6">
+          <h3>Inactive Customers</h3>
+        <ul>
+            @foreach ($inactives as $inactive)
+            <li> {{$inactive->name}} <span class="text-muted">({{$inactive->email}})</span> </li>
+            @endforeach
+        </ul>
     </div>
 </div>
+
+
+ @endsection
