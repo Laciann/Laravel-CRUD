@@ -46,7 +46,7 @@
     <div class="col-6">
         <h3>Active Customers</h3>
         <ul>
-            @foreach ($actives as $active)
+            @foreach ($activeCustomers as $active)
             <li> {{$active->name}} <span class="text-muted">({{$active->email}})</span> </li>
             @endforeach
         </ul>
@@ -55,7 +55,7 @@
       <div class="col-6">
           <h3>Inactive Customers</h3>
         <ul>
-            @foreach ($inactives as $inactive)
+            @foreach ($inactiveCustomers as $inactive)
             <li> {{$inactive->name}} <span class="text-muted">({{$inactive->email}})</span> </li>
             @endforeach
         </ul>
